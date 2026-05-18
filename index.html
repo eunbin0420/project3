@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>종합 학과 추천 시스템</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🎓 AI 맞춤형 학과 추천 시스템</h1>
+    <p class="subtitle">알고리즘 순서도 기반 종합 진단</p>
+    <hr>
+    
+    <div id="input-section">
+        <h3>[1] 사용자 정보 입력</h3>
+        
+        <div class="form-group">
+            <label for="interest">✨ 나의 관심 분야</label>
+            <select id="interest">
+                <option value="">-- 선택 --</option>
+                <option value="bio">생명 / 식품 / 보건</option>
+                <option value="it">코딩 / 컴퓨터 / 로봇</option>
+                <option value="edu">교육 / 상담 / 사람</option>
+                <option value="design">디자인 / 영상 / 예술</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="subject">📚 가장 좋아하는 과목</label>
+            <select id="subject">
+                <option value="">-- 선택 --</option>
+                <option value="science">과학 / 기술가정</option>
+                <option value="math">수학 / 정보</option>
+                <option value="korean">국어 / 사회 / 도덕</option>
+                <option value="art">미술 / 음악 / 체육</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="job">💼 희망하는 미래 직업군</label>
+            <select id="job">
+                <option value="">-- 선택 --</option>
+                <option value="researcher">연구원 / 의사 / 개발자</option>
+                <option value="creator">크리에이터 / 디자이너 / 기획자</option>
+                <option value="teacher">교사 / 상담사 / 공공서비스</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="grade">📊 나의 현재 성적 등급 (평균)</label>
+            <select id="grade">
+                <option value="">-- 선택 --</option>
+                <option value="A">A 등급 (상위권)</option>
+                <option value="B">B~C 등급 (중위권)</option>
+                <option value="D">D 등급 이하 (하위권)</option>
+            </select>
+        </div>
+
+        <button onclick="processAlgorithm()">학과 분석 시작하기</button>
+    </div>
+
+    <div id="result-section" class="result-box">
+        <h3>[2] 알고리즘 분석 결과</h3>
+        
+        <div class="score-board">
+            <p>🧩 관심도 적합 점수: <span id="interest-score">0</span> / 60점</p>
+            <p>📈 성적 기준 점수: <span id="grade-score">0</span> / 40점</p>
+            <p class="total-score">🎯 종합 적합도 점수: <span id="total-score">0</span> / 100점</p>
+        </div>
+
+        <div class="recommend-card">
+            <div class="badge" id="group-badge">적합도 등급</div>
+            <h2 id="dept-name">추천 학과명</h2>
+            <p><strong>💡 추천 이유:</strong> <span id="recommend-reason"></span></p>
+            <p><strong>🛠️ 관련 직업:</strong> <span id="related-job"></span></p>
+            <p><strong>📖 준비 방법:</strong> <span id="prepare-method"></span></p>
+        </div>
+
+        <hr>
+
+        <div class="feedback-box">
+            <h4>[3] 사용자 피드백</h4>
+            <p>이 추천 결과에 얼마나 만족하시나요?</p>
+            <div class="feedback-buttons">
+                <button onclick="submitFeedback('만족')" class="btn-fb style-good">😊 만족</button>
+                <button onclick="submitFeedback('보통')" class="btn-fb style-normal">😐 보통</button>
+                <button onclick="submitFeedback('불만족')" class="btn-fb style-bad">🙁 불만족</button>
+            </div>
+            <p id="feedback-msg" class="feedback-thanks"></p>
+        </div>
+        
+        <button onclick="resetForm()" class="btn-reset">다시 테스트하기</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
